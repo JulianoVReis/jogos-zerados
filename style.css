@@ -22,7 +22,7 @@ nav {
 }
 
 nav p span {
-	color: #CC9900;
+	color: #E0D601;
 	margin-left: .3rem;
 }
 
@@ -37,7 +37,7 @@ nav li, nav p {
 	border-radius: .2rem;
 	transition: all .3s ease;
 	border: .1rem solid #161616;
-	background-color: #212121;
+	background-color: #252525;
 	padding: .3rem;
 }
 
@@ -60,9 +60,9 @@ nav span, nav p span {
 }
 
 .verde {
-	color: #41AB5D;
+	color: #19E428;
 }
 
 .vermelho {
-	color: #FF0000;
+	color: #F70103;
 }

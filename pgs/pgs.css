@@ -19,24 +19,46 @@ section {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+  position: relative;
+}
+
+.home {
+	display: block;
+	border-radius: 50%;
+	position: fixed;
+	top: 0;
+	left: 0;
+	transition: all .5s ease;
+	border: .1rem solid #C8C8C8;
+	border-right: .1rem solid #1F8020;
+	padding: .5rem;
+	margin: 2rem 0 0 2rem;
+}
+
+.home:hover {
+	border-right: .1rem solid #C8C8C8;
+	border-left: .1rem solid #FF0000;
+	transform: rotate(360deg);
 }
 
 .jogo {
 	width: 50rem;
 	height: 15rem;
 	border-radius: .3rem;
-	border: .1rem solid #161616;
-	background-color: #343434;
-	margin-top: 1rem;
+	margin-top: 1.5rem;
 }
 
 .jogo h1 {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
+	width: 49.1rem;
 	font-size: 1.3rem;
-	border-bottom: .1rem solid #161616;
+	border-radius: .3rem;
+	border: .1rem solid #161616;
+	background-color: #252525;
 	padding: .3rem .4rem;
+	margin-bottom: .1rem;
 }
 
 .jogo h1 span {
@@ -78,23 +100,28 @@ section {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	height: 12.4rem;
+	height: 12.5rem;
 	width: 10rem;
-	border-right: .1rem solid #161616;
+	border-radius: .3rem;
+	border: .1rem solid #161616;
+	border-top: transparent;
+	background-color: #252525;
 	padding: .5rem;
 }
 
 .cover img {
 	display: block;
-	width: 85%;
+	width: 84%;
 }
 
 .screenshots {
 	display: flex;
 	align-items: center;
 	justify-content: space-evenly;
-	height: 12.7rem;
-	width: 40rem;	
+	height: 12.5rem;
+	width: 40rem;
+	border-radius: .3rem;
+	background-color: transparent;
 }
 
 .screenshots img {
