@@ -1,0 +1,104 @@
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+	font-family: 'Padrao';
+	color: #C8C8C8;
+}
+
+@font-face {
+	font-family: 'Padrao';
+	src: url('../font/pixChicago.ttf');
+}
+
+body {
+	background-color: #1A1A1A;
+}
+
+section {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.jogo {
+	width: 50rem;
+	height: 15rem;
+	border-radius: .3rem;
+	border: .1rem solid #161616;
+	background-color: #343434;
+	margin-top: 1rem;
+}
+
+.jogo h1 {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	font-size: 1.3rem;
+	border-bottom: .1rem solid #161616;
+	padding: .3rem .4rem;
+}
+
+.jogo h1 span {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: .2rem;
+}
+
+.star {
+	width: 1.7rem;
+}
+
+.star1 {
+	width: 1.5rem;
+}
+
+.star2 {
+	width: 1.3rem;
+}
+
+.star3 {
+	width: 1.1rem;
+}
+
+.star4 {
+	width: .9rem;
+}
+
+.star5 {
+	width: .7rem;
+}
+
+.info {
+	display: flex;
+}
+
+.cover {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 12.4rem;
+	width: 10rem;
+	border-right: .1rem solid #161616;
+	padding: .5rem;
+}
+
+.cover img {
+	display: block;
+	width: 85%;
+}
+
+.screenshots {
+	display: flex;
+	align-items: center;
+	justify-content: space-evenly;
+	height: 12.7rem;
+	width: 40rem;	
+}
+
+.screenshots img {
+	display: block;
+	width: 30%;
+	border-radius: .2rem;
+}

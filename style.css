@@ -1,0 +1,68 @@
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+	font-family: 'Padrao';
+	color: #C8C8C8;
+}
+
+@font-face {
+	font-family: 'Padrao';
+	src: url('font/pixChicago.ttf');
+}
+
+nav {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	gap: 3rem;
+	height: 100vh;
+	background-color: #1A1A1A;
+}
+
+nav p span {
+	color: #CC9900;
+	margin-left: .3rem;
+}
+
+nav ul {
+	display: grid;
+	grid-template-columns: repeat(5, 1fr);
+	gap: 1rem;
+}
+
+nav li, nav p {
+	list-style: none;
+	border-radius: .2rem;
+	transition: all .3s ease;
+	border: .1rem solid #161616;
+	background-color: #212121;
+	padding: .3rem;
+}
+
+nav li:hover {
+	background-color: #343434;
+}
+
+nav a, nav p {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	gap: .3rem;
+	text-decoration: none;
+}
+
+nav span, nav p span {
+	border: .1rem solid #161616ad;
+	background-color: #1A1A1A;
+	padding: .1rem .4rem;
+}
+
+.verde {
+	color: #41AB5D;
+}
+
+.vermelho {
+	color: #FF0000;
+}
