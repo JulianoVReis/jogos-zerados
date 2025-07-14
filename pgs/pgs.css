@@ -45,7 +45,7 @@ section {
 	width: 50rem;
 	height: 15rem;
 	border-radius: .3rem;
-	margin-top: 1.5rem;
+	margin-top: 2.5rem;
 }
 
 .jogo h1 {
@@ -100,7 +100,7 @@ section {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	height: 12.5rem;
+	height: 13.1rem;
 	width: 10rem;
 	border-radius: .3rem;
 	border: .1rem solid #161616;
@@ -111,11 +111,17 @@ section {
 
 .cover img {
 	display: block;
-	width: 84%;
+	width: 86%;
+	transition: all .3s ease;
+}
+
+.cover img:hover {
+	transform: scale(1.8);
 }
 
 .screenshots {
 	display: flex;
+	flex-wrap: wrap;
 	align-items: center;
 	justify-content: space-evenly;
 	height: 12.5rem;
@@ -128,4 +134,18 @@ section {
 	display: block;
 	width: 30%;
 	border-radius: .2rem;
+	transition: all .3s ease;
+	padding: .3rem 0;
+}
+
+.screenshots img:hover {
+	transform: scale(1.5);
+}
+
+.screenshots p {
+	width: 38.2rem;
+	border-radius: .3rem;
+	border: .1rem solid #161616;
+	background-color: #252525;
+	padding: .3rem .4rem;
 }
