@@ -22,6 +22,10 @@ section {
   position: relative;
 }
 
+section:first-child {
+	margin-top: 2rem;
+}
+
 .home {
 	display: block;
 	border-radius: 50%;
@@ -45,7 +49,7 @@ section {
 	width: 50rem;
 	height: 15rem;
 	border-radius: .3rem;
-	margin-top: 2.5rem;
+	margin-bottom: 2.5rem;
 }
 
 .jogo h1 {
@@ -94,6 +98,7 @@ section {
 
 .info {
 	display: flex;
+	gap: .1rem;
 }
 
 .cover {
@@ -104,7 +109,6 @@ section {
 	width: 10rem;
 	border-radius: .3rem;
 	border: .1rem solid #161616;
-	border-top: transparent;
 	background-color: #252525;
 	padding: .5rem;
 }
@@ -119,33 +123,32 @@ section {
 	transform: scale(1.8);
 }
 
-.screenshots {
-	display: flex;
-	flex-wrap: wrap;
-	align-items: center;
-	justify-content: space-evenly;
-	height: 12.5rem;
-	width: 40rem;
+.cover-snes img {
+	width: 95%;
+}
+
+.cover-snes-jp1 img {
+	width: 75%;
+}
+
+.texto-info div:first-of-type {
+	width: 39rem;
+	height: 11.05rem;
 	border-radius: .3rem;
-	background-color: transparent;
+	border: .1rem solid #161616;
+	background-color: #252525;
+	padding: .5rem;
+	margin-bottom: .1rem;
 }
 
-.screenshots img {
-	display: block;
-	width: 30%;
-	border-radius: .2rem;
-	transition: all .3s ease;
-	padding: .3rem 0;
-}
-
-.screenshots img:hover {
-	transform: scale(1.5);
-}
-
-.screenshots p {
-	width: 38.2rem;
+.texto-info div:last-of-type {
+	width: 39rem;
 	border-radius: .3rem;
 	border: .1rem solid #161616;
 	background-color: #252525;
 	padding: .3rem .4rem;
+}
+
+.texto-info p:nth-child(3) {
+	margin-bottom: .6rem;
 }
