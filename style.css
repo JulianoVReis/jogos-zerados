@@ -27,9 +27,8 @@ nav p span {
 }
 
 nav ul {
-	display: grid;
-	grid-template-columns: repeat(5, 1fr);
-	gap: 1rem;
+  column-count: 5;
+  column-gap: 1.5rem;
 }
 
 nav li, nav p {
@@ -39,6 +38,10 @@ nav li, nav p {
 	border: .1rem solid #161616;
 	background-color: #252525;
 	padding: .3rem;
+}
+
+nav li + li {
+	margin-top: .1rem;
 }
 
 nav li:hover {
