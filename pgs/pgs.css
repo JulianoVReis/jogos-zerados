@@ -215,6 +215,14 @@ section:last-child {
 	width: 76%;
 }
 
+.cover-ss img {
+	width: 80%;
+}
+
+.cover-ss-jp img {
+	width: 95%;
+}
+
 .texto-info div:first-of-type {
 	display: flex;
 	flex-direction: column;
