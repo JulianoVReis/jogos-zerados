@@ -223,6 +223,14 @@ section:last-child {
 	width: 95%;
 }
 
+.cover-n64 img {
+	width: 97%;
+}
+
+.cover-dc img {
+	width: 95%;
+}
+
 .texto-info div:first-of-type {
 	display: flex;
 	flex-direction: column;
