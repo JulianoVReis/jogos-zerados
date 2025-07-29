@@ -231,6 +231,30 @@ section:last-child {
 	width: 95%;
 }
 
+.cover-gba img {
+	width: 98%;
+}
+
+.cover-nds img {
+	width: 97%;
+}
+
+.cover-psp img {
+	width: 77%;
+}
+
+.cover-wii img {
+	width: 94%;
+}
+
+.cover-arcade img {
+	width: 95%;
+}
+
+.cover-mobile img {
+	width: 100%;
+}
+
 .texto-info div:first-of-type {
 	display: flex;
 	flex-direction: column;
