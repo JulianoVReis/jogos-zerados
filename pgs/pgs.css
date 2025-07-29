@@ -255,6 +255,10 @@ section:last-child {
 	width: 100%;
 }
 
+.cover-ps1 img {
+	width: 97%;
+}
+
 .texto-info div:first-of-type {
 	display: flex;
 	flex-direction: column;
