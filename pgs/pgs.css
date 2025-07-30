@@ -262,7 +262,7 @@ section:last-child {
 .texto-info div:first-of-type {
 	display: flex;
 	flex-direction: column;
-	justify-content: center;
+	justify-content: space-evenly;
 	width: 39rem;
 	height: 11.05rem;
 	border-radius: .3rem;
