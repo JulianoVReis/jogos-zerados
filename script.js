@@ -6,6 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
 	const navLista = document.querySelector("nav ul");
 	const linksInternos = document.querySelectorAll('a[href^="#"]');
 	const linksLista = document.querySelectorAll(".lista-jogos a");
+	const regiao = document.querySelectorAll('.texto-info div:last-of-type')
 
 	if (menuListaJogos && listaJogos) {
 		menuListaJogos.addEventListener("click", (event) => {
@@ -40,14 +41,15 @@ document.addEventListener("DOMContentLoaded", () => {
 	});
 
 	if (section) {
-		const jogos = Array.from(section.querySelectorAll(".jogo"));
-		jogos.sort((a, b) => {
-			const tituloA = a.querySelector("h1").childNodes[0].nodeValue.trim().toLowerCase();
-			const tituloB = b.querySelector("h1").childNodes[0].nodeValue.trim().toLowerCase();
-			return tituloA.localeCompare(tituloB);
-		});
-		jogos.forEach((jogo) => section.appendChild(jogo));
-	}
+	const jogos = Array.from(section.querySelectorAll(".jogo"));
+
+	const nomes = jogos.map(jogo => {
+		const h1 = jogo.querySelector("h1");
+		const titulo = h1?.textContent.trim().toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+		console.log("Título encontrado:", titulo);
+		return titulo;
+	});
+}
 
 	const lista = document.querySelector(".lista-jogos ul");
 	if (lista) {
@@ -61,4 +63,10 @@ document.addEventListener("DOMContentLoaded", () => {
 		itens.sort((a, b) => a.textContent.toLowerCase().localeCompare(b.textContent.toLowerCase()));
 		itens.forEach((item) => navLista.appendChild(item));
 	}
+
+	regiao.forEach(el => {
+	 el.addEventListener('mouseenter', () => {
+		el.title = 'Versões Zeradas';
+	 });
+  });
 });
