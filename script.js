@@ -70,3 +70,20 @@ document.addEventListener("DOMContentLoaded", () => {
 	 });
   });
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+  const spans = document.querySelectorAll('nav ul li a span');
+  let total = 0;
+
+  spans.forEach(span => {
+    const valor = parseInt(span.textContent, 10);
+    if (!isNaN(valor)) {
+      total += valor;
+    }
+  });
+
+  const totalSpan = document.querySelector('nav > p > span');
+  if (totalSpan) {
+    totalSpan.textContent = total;
+  }
+});

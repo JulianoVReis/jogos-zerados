@@ -15,7 +15,7 @@ body {
 	background-color: #1A1A1A;
 }
 
-section {
+#container {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -98,7 +98,7 @@ section:last-child {
 }
 
 .lista-jogos ul {
-  column-count: 2;
+  column-count: 3;
   column-gap: .5rem;
 }
 
@@ -259,16 +259,23 @@ section:last-child {
 	width: 97%;
 }
 
+.cover-ps1-b img {
+	width: 85%;
+}
+
+.cover-tgfxcd img {
+	width: 98%;
+}
+
 .texto-info div:first-of-type {
 	display: flex;
 	flex-direction: column;
-	justify-content: space-evenly;
 	width: 39rem;
 	height: 11.05rem;
 	border-radius: .3rem;
 	border: .1rem solid #161616;
 	background-color: #252525;
-	padding: .5rem;
+	padding: .6rem;
 	margin-bottom: .1rem;
 }
 
@@ -280,6 +287,10 @@ section:last-child {
 	padding: .3rem .4rem;
 }
 
-.texto-info p:nth-child(3) {
-	margin-bottom: .6rem;
+.texto-info p + p {
+	padding-top: .2rem;
+}
+
+.texto-info p:nth-child(4) {
+	margin-top: auto;
 }
