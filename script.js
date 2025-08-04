@@ -1,89 +1,48 @@
-document.addEventListener("DOMContentLoaded", () => {
-	const main = document.querySelector("main");
-	const menuListaJogos = document.querySelector(".menu-lista-jogos");
-	const listaJogos = document.querySelector(".lista-jogos");
-	const section = document.querySelector("section");
-	const navLista = document.querySelector("nav ul");
-	const linksInternos = document.querySelectorAll('a[href^="#"]');
-	const linksLista = document.querySelectorAll(".lista-jogos a");
-	const regiao = document.querySelectorAll('.texto-info div:last-of-type')
+window.addEventListener("DOMContentLoaded", () => {
+	const spans = document.querySelectorAll("ul.lista li a span");
+	let total = 0;
 
-	if (menuListaJogos && listaJogos) {
-		menuListaJogos.addEventListener("click", (event) => {
-			event.stopPropagation();
-			listaJogos.classList.toggle("aparecer");
-		});
-
-		main?.addEventListener("click", (event) => {
-			if (!listaJogos.contains(event.target) && !menuListaJogos.contains(event.target)) {
-				listaJogos.classList.remove("aparecer");
-			}
-		});
-
-		linksLista.forEach((link) => {
-			link.addEventListener("click", () => {
-				listaJogos.classList.remove("aparecer");
-			});
-		});
-	}
-
-	linksInternos.forEach((link) => {
-		link.addEventListener("click", (e) => {
-			const href = link.getAttribute("href");
-			if (href.startsWith("#")) {
-				e.preventDefault();
-				const destino = document.getElementById(href.substring(1));
-				if (destino) {
-					destino.scrollIntoView({ behavior: "smooth", block: "start" });
-				}
-			}
-		});
+	spans.forEach((span) => {
+		const valor = parseInt(span.textContent);
+		if (!isNaN(valor)) {
+			total += valor;
+		}
 	});
 
-	if (section) {
-	const jogos = Array.from(section.querySelectorAll(".jogo"));
+	const totalSpan = document.querySelector("p span");
+	if (totalSpan) {
+		totalSpan.textContent = total;
+	}
 
-	const nomes = jogos.map(jogo => {
-		const h1 = jogo.querySelector("h1");
-		const titulo = h1?.textContent.trim().toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
-		console.log("Título encontrado:", titulo);
-		return titulo;
+	const btnLista = document.querySelector(".lista");
+	const menuJogos = document.querySelector(".lista-jogos");
+
+	let aberto = false;
+
+	btnLista.addEventListener("click", (e) => {
+		e.stopPropagation();
+		aberto = !aberto;
+		menuJogos.style.display = aberto ? "block" : "none";
+		btnLista.classList.toggle("ativo", aberto);
 	});
-}
 
-	const lista = document.querySelector(".lista-jogos ul");
-	if (lista) {
-		const itens = Array.from(lista.querySelectorAll("li"));
-		itens.sort((a, b) => a.textContent.toLowerCase().localeCompare(b.textContent.toLowerCase()));
-		itens.forEach((item) => lista.appendChild(item));
-	}
+	document.addEventListener("click", (e) => {
+		if (aberto && !menuJogos.contains(e.target) && e.target !== btnLista) {
+			menuJogos.style.display = "none";
+			btnLista.classList.remove("ativo");
+			aberto = false;
+		}
+	});
 
-	if (navLista) {
-		const itens = Array.from(navLista.querySelectorAll("li"));
-		itens.sort((a, b) => a.textContent.toLowerCase().localeCompare(b.textContent.toLowerCase()));
-		itens.forEach((item) => navLista.appendChild(item));
-	}
+	const container = document.querySelector(".container");
+	const jogos = Array.from(container.querySelectorAll(".jogo"));
 
-	regiao.forEach(el => {
-	 el.addEventListener('mouseenter', () => {
-		el.title = 'Versões Zeradas';
-	 });
-  });
-});
+	jogos.sort((a, b) => {
+		const tituloA = a.querySelector("h1").textContent.trim().toLowerCase();
+		const tituloB = b.querySelector("h1").textContent.trim().toLowerCase();
 
-document.addEventListener('DOMContentLoaded', () => {
-  const spans = document.querySelectorAll('nav ul li a span');
-  let total = 0;
+		return tituloA.localeCompare(tituloB, "pt-BR", { numeric: true, sensitivity: "base" });
+	});
 
-  spans.forEach(span => {
-    const valor = parseInt(span.textContent, 10);
-    if (!isNaN(valor)) {
-      total += valor;
-    }
-  });
-
-  const totalSpan = document.querySelector('nav > p > span');
-  if (totalSpan) {
-    totalSpan.textContent = total;
-  }
+	jogos.reverse().forEach((jogo) => container.prepend(jogo));
 });

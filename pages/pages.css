@@ -1,0 +1,229 @@
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+	font-family: 'Padrao';
+	list-style: none;
+}
+
+@font-face {
+	font-family: 'Padrao';
+	src: url('../font/pixChicago.ttf');
+}
+
+html {
+	background-color: #1A1A1A;
+}
+
+.menu {
+	display: flex;
+	align-items: center;
+	gap: 2rem;
+	width: 20%;
+	position: fixed;
+	top: 0;
+	left: 0;
+	background-color: #1A1A1A;
+	padding-left: 3rem;
+	margin-top: 2rem;
+}
+
+.home {
+	display: block;
+	border-radius: 50%;
+	transition: all .5s ease;
+	border: .1rem solid #E1E1E1;
+	border-right: .1rem solid #1F8020;
+	padding: .3rem;
+}
+
+.home:hover {
+	cursor: pointer;
+	transform: rotate(360deg);
+	border-right: .1rem solid #E1E1E1;
+	border-left: .1rem solid #FF0000;
+}
+
+.lista {
+	display: block;
+	border-radius: 50%;
+	transition: all .5s ease;
+	border: .1rem solid #C8C8C8;
+	border-top: .1rem solid #1F8020;
+	padding: .3rem;
+}
+
+.lista.ativo {
+	border-top: .1rem solid #E1E1E1;
+	border-bottom: .1rem solid #FF0000;
+}
+
+.lista:hover {
+	cursor: pointer;
+	border-top: .1rem solid #E1E1E1;
+	border-bottom: .1rem solid #FF0000;
+}
+
+.lista-jogos {
+	display: none;
+	position: fixed;
+	top: 5rem;
+	left: 3%;
+}
+
+.lista-jogos ul {
+  column-count: 3;
+  column-gap: .1rem;
+}
+
+.lista-jogos li + li {
+	margin-top: .1rem;
+}
+
+.lista-jogos a {
+	display: block;
+	font-size: .9rem;
+	text-decoration: none;
+	border-radius: .2rem;
+	transition: all .3s ease;
+	border: .1rem solid #161616;
+	color: #E1E1E1;
+	background-color: #252525;
+	padding: .3rem;
+}
+
+.lista-jogos a:hover {
+	background-color: #343434;
+}
+
+.arrow {
+	display: block;
+	border-radius: 50%;
+	transition: all .5s ease;
+	border: .1rem solid #E1E1E1;
+	border-bottom: .1rem solid #1F8020;
+	padding: .3rem;
+}
+
+.arrow:hover {
+	cursor: pointer;
+	transform: rotate(180deg);
+	border-bottom: .1rem solid #FF0000;
+}
+
+.container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 3.5rem;
+	width: 100%;
+	background-color: #1A1A1A;
+}
+
+.jogo {
+	width: 45%;
+	height: 15rem;
+	color: #E1E1E1;
+}
+
+.jogo:nth-child(1) {
+	margin-top: 2rem;
+}
+
+.titulo {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: 100%;
+	font-size: .8rem;
+	border-radius: .3rem;
+	border: .1rem solid #161616;
+	background-color: #252525;
+	padding: .3rem .4rem;
+	margin-bottom: .05rem;
+}
+
+.titulo h1 {
+}
+
+.nota {
+	display: flex;
+	gap: .2rem;
+}
+
+.nota img {
+	display: block;
+}
+
+.star-s {
+	width: 1.7rem;
+}
+
+.star-1 {
+	width: 1.5rem;
+}
+
+.star-2 {
+	width: 1.3rem;
+}
+
+.star-3 {
+	width: 1.1rem;
+}
+
+.star-4 {
+	width: .9rem;
+}
+
+.star-5 {
+	width: .7rem;
+}
+
+.info-jogo {
+	display: flex;
+}
+
+.cover {
+	width: 35rem;
+	height: 13rem;
+	border-radius: .3rem;
+	border: .1rem solid #161616;
+	background-color: #252525;
+	padding: .5rem;
+}
+
+.cover img {
+	display: block;
+	width: 100%;
+	height: 100%;
+	object-fit: contain;
+	transition: all .3s ease;
+}
+
+.cover img:hover {
+	transform: scale(1.8);
+}
+
+.texto {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	border-radius: .3rem;
+	border: .1rem solid #161616;
+	background-color: #252525;
+	padding: 1rem .5rem;
+	margin-left: .05rem;
+}
+
+.texto div p + p {
+	margin-top: .2rem;
+}
+
+.regiao {
+	width: 100%;
+	border-radius: .3rem;
+	border: .1rem solid #161616;
+	background-color: #252525;
+	padding: .3rem .4rem;
+	margin-top: .05rem;
+}

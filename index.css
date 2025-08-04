@@ -3,7 +3,7 @@
 	margin: 0;
 	box-sizing: border-box;
 	font-family: 'Padrao';
-	color: #C8C8C8;
+	list-style: none;
 }
 
 @font-face {
@@ -11,52 +11,65 @@
 	src: url('font/pixChicago.ttf');
 }
 
-nav {
+.container {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	gap: 3rem;
+	gap: 2rem;
+	width: 100%;
 	height: 100vh;
+	color: #E1E1E1;
 	background-color: #1A1A1A;
 }
 
-nav p span {
-	color: #2C97FA;
-	margin-left: .3rem;
-}
-
-nav ul {
-  column-count: 5;
-  column-gap: 1.5rem;
-}
-
-nav li, nav p {
-	list-style: none;
+.container p {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: fit-content;
 	border-radius: .2rem;
-	transition: all .3s ease;
 	border: .1rem solid #161616;
 	background-color: #252525;
 	padding: .3rem;
 }
 
-nav li + li {
+.container p span {
+	border: .1rem solid #161616ad;
+	color: #2C97FA;
+	background-color: #1A1A1A;
+	padding: .1rem .4rem;
+	margin-left: 1rem;
+}
+
+.lista { 
+  column-count: 5;
+  column-gap: .5rem;
+}
+
+.lista li + li {
 	margin-top: .1rem;
 }
 
-nav li:hover {
-	background-color: #343434;
-}
-
-nav a, nav p {
+.lista a {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
 	gap: .3rem;
+	width: 11.8rem;
 	text-decoration: none;
+	border-radius: .2rem;
+	border: .1rem solid #161616;
+	color: #E1E1E1;
+	background-color: #252525;
+	padding: .3rem;
 }
 
-nav span, nav p span {
+.lista a:hover {
+	background-color: #343434;
+}
+
+.lista span {
 	border: .1rem solid #161616ad;
 	background-color: #1A1A1A;
 	padding: .1rem .4rem;
