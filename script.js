@@ -7,6 +7,9 @@ window.addEventListener("DOMContentLoaded", () => {
 		if (!isNaN(valor)) {
 			total += valor;
 		}
+
+		// Aplica a cor dinamicamente
+		span.style.color = valor > 0 ? "#19E428" : "#F70103";
 	});
 
 	const totalSpan = document.querySelector("p span");

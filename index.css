@@ -2,13 +2,13 @@
 	padding: 0;
 	margin: 0;
 	box-sizing: border-box;
-	font-family: 'Padrao';
+	font-family: "Padrao";
 	list-style: none;
 }
 
 @font-face {
-	font-family: 'Padrao';
-	src: url('font/pixChicago.ttf');
+	font-family: "Padrao";
+	src: url("font/pixChicago.ttf");
 }
 
 .container {
@@ -19,8 +19,8 @@
 	gap: 2rem;
 	width: 100%;
 	height: 100vh;
-	color: #E1E1E1;
-	background-color: #1A1A1A;
+	color: #e1e1e1;
+	background-color: #1a1a1a;
 }
 
 .container p {
@@ -28,41 +28,41 @@
 	justify-content: space-between;
 	align-items: center;
 	width: fit-content;
-	border-radius: .2rem;
-	border: .1rem solid #161616;
+	border-radius: 0.2rem;
+	border: 0.1rem solid #161616;
 	background-color: #252525;
-	padding: .3rem;
+	padding: 0.3rem;
 }
 
 .container p span {
-	border: .1rem solid #161616ad;
-	color: #2C97FA;
-	background-color: #1A1A1A;
-	padding: .1rem .4rem;
+	border: 0.1rem solid #161616ad;
+	color: #2c97fa;
+	background-color: #1a1a1a;
+	padding: 0.1rem 0.4rem;
 	margin-left: 1rem;
 }
 
-.lista { 
-  column-count: 5;
-  column-gap: .5rem;
+.lista {
+	column-count: 5;
+	column-gap: 0.5rem;
 }
 
 .lista li + li {
-	margin-top: .1rem;
+	margin-top: 0.1rem;
 }
 
 .lista a {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	gap: .3rem;
+	gap: 0.3rem;
 	width: 11.8rem;
 	text-decoration: none;
-	border-radius: .2rem;
-	border: .1rem solid #161616;
-	color: #E1E1E1;
+	border-radius: 0.2rem;
+	border: 0.1rem solid #161616;
+	color: #e1e1e1;
 	background-color: #252525;
-	padding: .3rem;
+	padding: 0.3rem;
 }
 
 .lista a:hover {
@@ -70,15 +70,30 @@
 }
 
 .lista span {
-	border: .1rem solid #161616ad;
-	background-color: #1A1A1A;
-	padding: .1rem .4rem;
+	border: 0.1rem solid #161616ad;
+	background-color: #1a1a1a;
+	padding: 0.1rem 0.4rem;
 }
 
-.verde {
-	color: #19E428;
+@media screen and (max-width: 991px) {
+	.lista {
+		column-count: 3;
+		column-gap: 0.5rem;
+	}
 }
 
-.vermelho {
-	color: #F70103;
+@media screen and (max-width: 767px) {
+	.container p {
+		font-size: 0.675rem;
+	}
+
+	.lista {
+		column-count: 3;
+		column-gap: 0.1rem;
+	}
+
+	.lista a {
+		width: 8.6rem;
+		font-size: 0.675rem;
+	}
 }
