@@ -120,6 +120,10 @@ html {
 	background-color: #1A1A1A;
 }
 
+.container:last-child {
+	margin-bottom: 5rem;
+}
+
 .jogo {
 	width: 45%;
 	height: 15rem;
@@ -208,6 +212,7 @@ html {
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
+	width: 100rem;
 	border-radius: .3rem;
 	border: .1rem solid #161616;
 	background-color: #252525;
