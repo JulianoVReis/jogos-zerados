@@ -27,6 +27,33 @@ window.addEventListener("DOMContentLoaded", () => {
 		aberto = !aberto;
 		menuJogos.style.display = aberto ? "block" : "none";
 		btnLista.classList.toggle("ativo", aberto);
+		
+		// Fecha o top-lista se estiver aberto
+		if (topLista.classList.contains("active")) {
+			topLista.classList.remove("active");
+		}
+	});
+
+	const btnTop = document.querySelector(".top");
+	const topLista = document.querySelector(".top-lista");
+
+	btnTop.addEventListener("click", (e) => {
+		e.stopPropagation(); // evita fechar imediatamente
+		topLista.classList.toggle("active");
+		
+		// Fecha o menu lista-jogos se estiver aberto
+		if (aberto) {
+			menuJogos.style.display = "none";
+			btnLista.classList.remove("ativo");
+			aberto = false;
+		}
+	});
+
+	// Fechar .top-lista ao clicar fora
+	document.addEventListener("click", (e) => {
+		if (!topLista.contains(e.target) && !btnTop.contains(e.target)) {
+			topLista.classList.remove("active");
+		}
 	});
 
 	document.addEventListener("click", (e) => {

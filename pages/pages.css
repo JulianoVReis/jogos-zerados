@@ -67,7 +67,7 @@ html {
 .lista-jogos {
 	display: none;
 	position: fixed;
-	top: 4.6rem;
+	top: 5rem;
 	left: 3%;
 }
 
@@ -109,6 +109,70 @@ html {
 	cursor: pointer;
 	transform: rotate(180deg);
 	border-bottom: 0.1rem solid #ff0000;
+}
+
+.trofeu {
+	width: 2rem;
+	transition: all .3s ease;
+}
+
+.trofeu:hover {
+	transform: scale(1.3);
+}
+
+.top {
+	display: block;
+	position: relative;
+	cursor: pointer;
+}
+
+.top-lista {
+	display: none;
+	position: fixed;
+	top: 5rem;
+	left: 2.75%;
+}
+
+.top-lista.active {
+	display: block;
+}
+
+.top-lista-titulos {
+	width: 23rem;;
+	font-size: .9rem;
+	list-style: none;
+	border-radius: 0.2rem;
+	color: #e1e1e1;
+	border: 0.1rem solid #161616;
+	background-color: #252525;
+	padding: .5rem .5rem .5rem .3rem;
+}
+
+.medalhas {
+	position: absolute;
+	top: 0;
+	left: -9%;
+	border-radius: 0.2rem;
+	border: 0.1rem solid #161616;
+	background-color: #252525;
+	padding: .5rem;
+}
+
+.medalhas img {
+	display: block;
+	width: .8rem;
+}
+
+.top-lista-titulos li {
+	margin-left: .5rem;
+}
+
+.top-lista li:last-of-type {
+	margin-left: 0;
+}
+
+.top-lista li + li {
+	margin-top: .8rem;
 }
 
 .container {
@@ -232,7 +296,7 @@ html {
 
 @media screen and (max-width: 991px) {
 	.menu {
-		left: 33%;
+		left: 29%;
 		margin-top: 0.65rem;
 	}
 
@@ -247,6 +311,11 @@ html {
 
 	.lista-jogos a {
 		font-size: 0.7rem;
+	}
+
+	.top-lista {
+		top: 3.2rem;
+		left: 26.5%;
 	}
 
 	.container {
@@ -269,7 +338,7 @@ html {
 
 @media screen and (max-width: 767px) {
 	.menu {
-		left: 20%;
+		left: 12.5%;
 		margin-top: 0.65rem;
 	}
 
@@ -284,6 +353,15 @@ html {
 
 	.lista-jogos li + li {
 		margin-top: 0.05rem;
+	}
+
+	.top-lista {
+		top: 3.2rem;
+		left: 10%;
+	}
+
+	.top-lista-titulos {
+		font-size: .8rem;
 	}
 
 	.container {
