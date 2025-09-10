@@ -67,12 +67,46 @@ window.addEventListener("DOMContentLoaded", () => {
 	const container = document.querySelector(".container");
 	const jogos = Array.from(container.querySelectorAll(".jogo"));
 
-	jogos.sort((a, b) => {
-		const tituloA = a.querySelector("h1").textContent.trim().toLowerCase();
-		const tituloB = b.querySelector("h1").textContent.trim().toLowerCase();
+	function romanToInt(roman) {
+    const mapa = {I:1, V:5, X:10, L:50, C:100, D:500, M:1000};
+    let total = 0;
+    let prev = 0;
 
-		return tituloA.localeCompare(tituloB, "pt-BR", { numeric: true, sensitivity: "base" });
-	});
+    for (let i = roman.length - 1; i >= 0; i--) {
+        const atual = mapa[roman[i].toUpperCase()];
+        if (atual < prev) {
+            total -= atual;
+        } else {
+            total += atual;
+        }
+        prev = atual;
+    }
+    return total;
+}
 
-	jogos.reverse().forEach((jogo) => container.prepend(jogo));
+function extrairNumeroDoTitulo(titulo) {
+    const regex = /\b([IVXLCDM]+|\d+)\b/i;
+    const match = titulo.match(regex);
+    if (match) {
+        if (/^[IVXLCDM]+$/i.test(match[1])) {
+            return romanToInt(match[1]);
+        }
+        return parseInt(match[1], 10);
+    }
+    return null;
+}
+
+jogos.sort((a, b) => {
+    const tituloA = a.querySelector("h1").textContent.trim();
+    const tituloB = b.querySelector("h1").textContent.trim();
+
+    const numA = extrairNumeroDoTitulo(tituloA);
+    const numB = extrairNumeroDoTitulo(tituloB);
+
+    if (numA !== null && numB !== null && numA !== numB) {
+        return numA - numB;
+    }
+
+    return tituloA.localeCompare(tituloB, "pt-BR", { numeric: true, sensitivity: "base" });
+});
 });
