@@ -189,7 +189,7 @@ html {
 }
 
 .jogo {
-	width: 45%;
+	width: 55%;
 	height: 15rem;
 	color: #e1e1e1;
 }
@@ -386,7 +386,7 @@ html {
 	}
 
 	.titulo {
-		font-size: 0.6rem;
+		font-size: 0.35rem;
 	}
 
 	.star-s {
