@@ -27,7 +27,7 @@ window.addEventListener("DOMContentLoaded", () => {
 		aberto = !aberto;
 		menuJogos.style.display = aberto ? "block" : "none";
 		btnLista.classList.toggle("ativo", aberto);
-		
+
 		// Fecha o top-lista se estiver aberto
 		if (topLista.classList.contains("active")) {
 			topLista.classList.remove("active");
@@ -40,7 +40,7 @@ window.addEventListener("DOMContentLoaded", () => {
 	btnTop.addEventListener("click", (e) => {
 		e.stopPropagation(); // evita fechar imediatamente
 		topLista.classList.toggle("active");
-		
+
 		// Fecha o menu lista-jogos se estiver aberto
 		if (aberto) {
 			menuJogos.style.display = "none";
@@ -68,45 +68,45 @@ window.addEventListener("DOMContentLoaded", () => {
 	const jogos = Array.from(container.querySelectorAll(".jogo"));
 
 	function romanToInt(roman) {
-    const mapa = {I:1, V:5, X:10, L:50, C:100, D:500, M:1000};
-    let total = 0;
-    let prev = 0;
+		const mapa = { I: 1, V: 5, X: 10, L: 50, C: 100, D: 500, M: 1000 };
+		let total = 0;
+		let prev = 0;
 
-    for (let i = roman.length - 1; i >= 0; i--) {
-        const atual = mapa[roman[i].toUpperCase()];
-        if (atual < prev) {
-            total -= atual;
-        } else {
-            total += atual;
-        }
-        prev = atual;
-    }
-    return total;
-}
+		for (let i = roman.length - 1; i >= 0; i--) {
+			const atual = mapa[roman[i].toUpperCase()];
+			if (atual < prev) {
+				total -= atual;
+			} else {
+				total += atual;
+			}
+			prev = atual;
+		}
+		return total;
+	}
 
-function extrairNumeroDoTitulo(titulo) {
-    const regex = /\b([IVXLCDM]+|\d+)\b/i;
-    const match = titulo.match(regex);
-    if (match) {
-        if (/^[IVXLCDM]+$/i.test(match[1])) {
-            return romanToInt(match[1]);
-        }
-        return parseInt(match[1], 10);
-    }
-    return null;
-}
+	function extrairNumeroDoTitulo(titulo) {
+		const regex = /\b([IVXLCDM]+|\d+)\b/i;
+		const match = titulo.match(regex);
+		if (match) {
+			if (/^[IVXLCDM]+$/i.test(match[1])) {
+				return romanToInt(match[1]);
+			}
+			return parseInt(match[1], 10);
+		}
+		return null;
+	}
 
-jogos.sort((a, b) => {
-    const tituloA = a.querySelector("h1").textContent.trim();
-    const tituloB = b.querySelector("h1").textContent.trim();
+	jogos.sort((a, b) => {
+		const tituloA = a.querySelector("h1").textContent.trim();
+		const tituloB = b.querySelector("h1").textContent.trim();
 
-    const numA = extrairNumeroDoTitulo(tituloA);
-    const numB = extrairNumeroDoTitulo(tituloB);
+		const numA = extrairNumeroDoTitulo(tituloA);
+		const numB = extrairNumeroDoTitulo(tituloB);
 
-    if (numA !== null && numB !== null && numA !== numB) {
-        return numA - numB;
-    }
+		if (numA !== null && numB !== null && numA !== numB) {
+			return numA - numB;
+		}
 
-    return tituloA.localeCompare(tituloB, "pt-BR", { numeric: true, sensitivity: "base" });
-});
+		return tituloA.localeCompare(tituloB, "pt-BR", { numeric: true, sensitivity: "base" });
+	});
 });
