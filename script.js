@@ -8,7 +8,6 @@ window.addEventListener("DOMContentLoaded", () => {
 			total += valor;
 		}
 
-		// Aplica a cor dinamicamente
 		span.style.color = valor > 0 ? "#19E428" : "#F70103";
 	});
 
@@ -28,7 +27,6 @@ window.addEventListener("DOMContentLoaded", () => {
 		menuJogos.style.display = aberto ? "block" : "none";
 		btnLista.classList.toggle("ativo", aberto);
 
-		// Fecha o top-lista se estiver aberto
 		if (topLista.classList.contains("active")) {
 			topLista.classList.remove("active");
 		}
@@ -38,10 +36,9 @@ window.addEventListener("DOMContentLoaded", () => {
 	const topLista = document.querySelector(".top-lista");
 
 	btnTop.addEventListener("click", (e) => {
-		e.stopPropagation(); // evita fechar imediatamente
+		e.stopPropagation();
 		topLista.classList.toggle("active");
 
-		// Fecha o menu lista-jogos se estiver aberto
 		if (aberto) {
 			menuJogos.style.display = "none";
 			btnLista.classList.remove("ativo");
@@ -49,7 +46,6 @@ window.addEventListener("DOMContentLoaded", () => {
 		}
 	});
 
-	// Fechar .top-lista ao clicar fora
 	document.addEventListener("click", (e) => {
 		if (!topLista.contains(e.target) && !btnTop.contains(e.target)) {
 			topLista.classList.remove("active");
@@ -73,7 +69,7 @@ window.addEventListener("DOMContentLoaded", () => {
 		let prev = 0;
 
 		for (let i = roman.length - 1; i >= 0; i--) {
-			const atual = mapa[roman[i].toUpperCase()];
+			const atual = mapa[roman[i].toUpperCase()] || 0;
 			if (atual < prev) {
 				total -= atual;
 			} else {
@@ -84,29 +80,34 @@ window.addEventListener("DOMContentLoaded", () => {
 		return total;
 	}
 
-	function extrairNumeroDoTitulo(titulo) {
-		const regex = /\b([IVXLCDM]+|\d+)\b/i;
-		const match = titulo.match(regex);
+	function parseTitle(title) {
+		const trailingRegex = /(?:\s+|^)([IVXLCDM]+|\d+)\s*$/i;
+		const match = title.match(trailingRegex);
+
 		if (match) {
-			if (/^[IVXLCDM]+$/i.test(match[1])) {
-				return romanToInt(match[1]);
-			}
-			return parseInt(match[1], 10);
+			const token = match[1];
+			const num = /^[IVXLCDM]+$/i.test(token) ? romanToInt(token) : parseInt(token, 10);
+			const base = title.slice(0, match.index).trim();
+			return { base: base, baseKey: base.toLowerCase(), num: isNaN(num) ? 0 : num };
 		}
-		return null;
+
+		return { base: title.trim(), baseKey: title.trim().toLowerCase(), num: 0 };
 	}
 
 	jogos.sort((a, b) => {
 		const tituloA = a.querySelector("h1").textContent.trim();
 		const tituloB = b.querySelector("h1").textContent.trim();
 
-		const numA = extrairNumeroDoTitulo(tituloA);
-		const numB = extrairNumeroDoTitulo(tituloB);
+		const pA = parseTitle(tituloA);
+		const pB = parseTitle(tituloB);
 
-		if (numA !== null && numB !== null && numA !== numB) {
-			return numA - numB;
-		}
+		const baseCompare = pA.baseKey.localeCompare(pB.baseKey, "pt-BR", { sensitivity: "base" });
+		if (baseCompare !== 0) return baseCompare;
+
+		if (pA.num !== pB.num) return pA.num - pB.num;
 
 		return tituloA.localeCompare(tituloB, "pt-BR", { numeric: true, sensitivity: "base" });
 	});
+
+	jogos.forEach((jogo) => container.appendChild(jogo));
 });
